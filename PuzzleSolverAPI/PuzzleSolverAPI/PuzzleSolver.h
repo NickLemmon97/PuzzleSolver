@@ -11,8 +11,7 @@ public:
 	void GenerateDefaultLayout();
 	void SolvePuzzle();
 
-
-	int GetNumSolutions() { return _Solutions.size(); }
+	int GetNumSolutions();
 
 private:
 	inline bool IsUniqueSetOf2(std::vector<Piece>& p1, std::vector<Piece>& p2)

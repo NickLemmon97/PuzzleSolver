@@ -216,3 +216,8 @@ void PuzzleSolver::SolvePuzzle()
 		o0 o1 p0 p1
 	*/
 }
+
+int PuzzleSolver::GetNumSolutions()
+{
+	return _Solutions.size();
+}

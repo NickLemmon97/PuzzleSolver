@@ -4,6 +4,9 @@
 
 class PuzzleSolver
 {
+
+	typedef void (*InternalDrawFunc)(std::vector<Piece>&);
+
 public:
 	PuzzleSolver();
 	~PuzzleSolver();
@@ -12,6 +15,9 @@ public:
 	void SolvePuzzle();
 
 	int GetNumSolutions();
+
+	void SetDrawFunction(InternalDrawFunc func);
+	void DrawSolutions();
 
 private:
 	inline bool IsUniqueSetOf2(std::vector<Piece>& p1, std::vector<Piece>& p2)
@@ -27,5 +33,7 @@ private:
 	BaseShape _Shapes[8];
 	std::vector<Piece> _Pieces;
 	std::vector<std::vector<Piece>> _Solutions;
+
+	InternalDrawFunc DrawFunc;
 };
 

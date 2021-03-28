@@ -1,7 +1,7 @@
 # PuzzleSolver
 
 This is a project that tries to find all possible solutions to the following puzzle:
-[!ExamplePuzzle]
+![](Puzzle.jpg)
 
 The task was given for fun by an instructor to attempt to brute force and find all the solutions.
 

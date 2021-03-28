@@ -127,24 +127,11 @@ public:
 		return _Sides[GetSideIndex(3)];
 	}
 
-	Piece& operator= (Piece& rhs)
-	{
-		_Rotation = rhs._Rotation;
-		_Index = rhs._Index;
-
-		_Sides[0] = rhs._Sides[0];
-		_Sides[1] = rhs._Sides[1];
-		_Sides[2] = rhs._Sides[2];
-		_Sides[3] = rhs._Sides[3];
-
-		return *this;
-	}
-
 	inline bool operator==(Piece rhs)
 	{
 		return _Index == rhs._Index;
 	}
 
-	unsigned short _Rotation, _Index;
+	unsigned int _Rotation, _Index;
 	BaseShape _Sides[TotalShapeSides];
 };

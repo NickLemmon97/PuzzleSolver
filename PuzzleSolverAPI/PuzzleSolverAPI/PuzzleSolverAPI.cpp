@@ -30,3 +30,10 @@ PLUGIN_API void  PuzzleSolver_SolvePuzzle(void* solverPtr)
 
 	solver->SolvePuzzle();
 }
+
+PLUGIN_API int   PuzzleSolver_GetNumSolutions(void* solverPtr)
+{
+	PuzzleSolver* solver = static_cast<PuzzleSolver*>(solverPtr);
+
+	return solver->GetNumSolutions();
+}

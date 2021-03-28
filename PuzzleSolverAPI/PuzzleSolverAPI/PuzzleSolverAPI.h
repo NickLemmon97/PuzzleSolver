@@ -13,4 +13,6 @@ extern "C"
 	PLUGIN_API void  PuzzleSolver_Destroy(void* solverPtr);
 	PLUGIN_API void  PuzzleSolver_GenerateDefaultLayout(void* solverPtr);
 	PLUGIN_API void  PuzzleSolver_SolvePuzzle(void* solverPtr);
+
+	PLUGIN_API int   PuzzleSolver_GetNumSolutions(void* solverPtr);
 }

@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class Solver : MonoBehaviour
 {
-
     public GameObject ButtonPrefab;
+    public GameObject PiecePrefab;
+
     public GameObject canvas;
+
+    public Sprite[] PuzzleShapes;
+    public Vector3[] Locations;
+    public PuzzlePiece[] PuzzlePieces;
 
     public int Solutions = 20;
 
@@ -14,17 +19,61 @@ public class Solver : MonoBehaviour
     void Start()
     {
         m_PuzzleSolver = new PuzzleSolver();
+
+        PuzzlePieces = new PuzzlePiece[16];
+        Locations = new Vector3[16];
+        CreateLocations();
+
         m_PuzzleSolver.GenerateDefaultLayout();
+        CreatePieces();
+        
         m_PuzzleSolver.SolvePuzzle();
 
-        int Solutions = m_PuzzleSolver.GetNumSolutions();
-
+        Solutions = m_PuzzleSolver.GetNumSolutions();
         Debug.Log("Solutions: " + Solutions.ToString());
 
+        CreateButton();
+    }
 
+
+    public void DisplaySolution(int solutionNum)
+    {
+        Debug.Log("Button pressed: " + solutionNum.ToString());
+    }
+
+    private void CreateLocations()
+    {
+        float StartingX = -8.0f;
+        float StartingY = 3.0f;
+
+        float PieceOffset = 2.0f;//1.35f;
+
+        for(int y = 0; y < 4; y++)
+        {
+            for(int x = 0; x < 4; x++)
+            {
+                Locations[(y * 4) + x] = new Vector3(StartingX + (x * PieceOffset), StartingY - (y * PieceOffset));
+            }
+        }
+    }
+
+    private void CreatePieces()
+    {
+        for(int i = 0; i < 16; i++)
+        {
+            GameObject piece = Instantiate(PiecePrefab);
+            piece.transform.position = Locations[i];
+
+            PuzzlePiece puzzlePiece = piece.GetComponent<PuzzlePiece>();
+            PuzzlePieces[i] = puzzlePiece;
+        }
+    }
+
+    private void CreateButton()
+    {
         int RowsCount = (Solutions - 1) / 10;
 
-        for(int i = 0; i < Solutions; i++)
+        for (int i = 0; i < Solutions; i++)
         {
             GameObject newButton = Instantiate<GameObject>(ButtonPrefab);
 
@@ -46,12 +95,6 @@ public class Solver : MonoBehaviour
             solutionButton.SolutionIndex = i;
             solutionButton.solver = this;
         }
-    }
-
-
-    public void DisplaySolution(int solutionNum)
-    {
-        Debug.Log("Button pressed: " + solutionNum.ToString());
     }
 
 

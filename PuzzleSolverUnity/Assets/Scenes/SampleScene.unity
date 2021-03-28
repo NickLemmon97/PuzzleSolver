@@ -228,7 +228,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ButtonPrefab: {fileID: 4849441772282630822, guid: 570cb14257f774f4bbd735e8370c7552,
     type: 3}
+  PiecePrefab: {fileID: 827017218247069982, guid: c24339cedb4f9a845a27e2c4beb45dd0,
+    type: 3}
   canvas: {fileID: 2113008335}
+  PuzzleShapes:
+  - {fileID: 21300000, guid: 92c6dd15959f7cc47aaf20e59a949042, type: 3}
+  - {fileID: 21300000, guid: 9ea38ccd82d194f4da952a7b653281e5, type: 3}
+  - {fileID: 21300000, guid: df5fb6a94ad398f4eb5658981c4816de, type: 3}
+  - {fileID: 21300000, guid: 404cf3e250cfdbc4f8311b4285d6575e, type: 3}
+  - {fileID: 21300000, guid: 683a146febc001743b6c51bfdeb27e46, type: 3}
+  - {fileID: 21300000, guid: b9a160704ff623746ae5c0b5d698dd05, type: 3}
+  - {fileID: 21300000, guid: 3bc67d899dc2fe444b21e28604f3ba97, type: 3}
+  - {fileID: 21300000, guid: b319c44f102e04c4490b2578a10ba724, type: 3}
+  Locations: []
+  PuzzlePieces: []
   Solutions: 20
 --- !u!20 &519420031
 Camera:

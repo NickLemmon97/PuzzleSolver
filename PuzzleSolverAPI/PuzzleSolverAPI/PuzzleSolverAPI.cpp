@@ -37,3 +37,41 @@ PLUGIN_API int   PuzzleSolver_GetNumSolutions(void* solverPtr)
 
 	return solver->GetNumSolutions();
 }
+
+PLUGIN_API void PuzzleSolver_GetUnityPiece(void* solverPtr, int index, int* arr)
+{
+	PuzzleSolver* solver = static_cast<PuzzleSolver*>(solverPtr);
+
+	Piece piece = solver->GetPieceAtIndex(index);
+
+	for (int i = 0; i < 4; i++)
+	{
+		int val = 0;
+		switch (piece._Sides[i]._Type)
+		{
+		case ShapeType::Cross:
+			val = 0;
+			break;
+
+		case ShapeType::Circle:
+			val = 2;
+			break;
+
+		case ShapeType::InArrow:
+			val = 4;
+			break;
+
+		case ShapeType::OutArrow:
+			val = 6;
+			break;
+		}
+
+		if (piece._Sides[i]._Inward)
+		{
+			val++;
+		}
+
+		arr[i] = val;
+	}
+
+}

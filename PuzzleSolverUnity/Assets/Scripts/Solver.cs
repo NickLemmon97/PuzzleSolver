@@ -59,12 +59,22 @@ public class Solver : MonoBehaviour
 
     private void CreatePieces()
     {
+        int[] PieceValues = new int[6];
+
         for(int i = 0; i < 16; i++)
         {
             GameObject piece = Instantiate(PiecePrefab);
             piece.transform.position = Locations[i];
 
             PuzzlePiece puzzlePiece = piece.GetComponent<PuzzlePiece>();
+
+            m_PuzzleSolver.GetUnityPiece(i, PieceValues);
+
+            puzzlePiece.SetTopSprite(PuzzleShapes[PieceValues[0]]);
+            puzzlePiece.SetRightSprite(PuzzleShapes[PieceValues[1]]);
+            puzzlePiece.SetBottomSprite(PuzzleShapes[PieceValues[2]]);
+            puzzlePiece.SetLeftSprite(PuzzleShapes[PieceValues[3]]);
+
             PuzzlePieces[i] = puzzlePiece;
         }
     }

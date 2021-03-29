@@ -26,6 +26,11 @@ public class PuzzleSolver : IDisposable
         return PuzzleSolver_GetNumSolutions(Impl);
     }
 
+    public void GetUnityPiece(int index, int[] pieceData)
+    {
+        PuzzleSolver_GetUnityPiece(Impl, index, pieceData);
+    }
+
 
     IntPtr Impl;
 
@@ -63,5 +68,8 @@ public class PuzzleSolver : IDisposable
 
     [DllImport("PuzzleSolverAPI")]
     private static extern int PuzzleSolver_GetNumSolutions(IntPtr solverPtr);
+
+    [DllImport("PuzzleSolverAPI")]
+    private static extern int PuzzleSolver_GetUnityPiece(IntPtr solverPtr, int index, [MarshalAs(UnmanagedType.SafeArray)] int[] pieceData);
 
 }

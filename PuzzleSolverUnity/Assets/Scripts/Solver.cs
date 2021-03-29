@@ -15,7 +15,7 @@ public class Solver : MonoBehaviour
 
     public int Solutions = 20;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         m_PuzzleSolver = new PuzzleSolver();
@@ -57,7 +57,7 @@ public class Solver : MonoBehaviour
         float StartingX = -8.0f;
         float StartingY = 3.0f;
 
-        float PieceOffset = 2.0f;//1.35f;
+        float PieceOffset = 2.0f;
 
         for(int y = 0; y < 4; y++)
         {

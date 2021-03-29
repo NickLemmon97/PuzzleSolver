@@ -84,7 +84,7 @@ PLUGIN_API void PuzzleSolver_GetUnitySolution(void* solverPtr, int index, int* o
 
 	for (int i = 0; i < 16; i++)
 	{
-		order[i] = solution[i]._Index;
+		order[i] = solution[i]._Index - 1;
 		rotations[i] = solution[i]._Rotation;
 	}
 }

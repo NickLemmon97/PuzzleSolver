@@ -1,4 +1,7 @@
 #include "PuzzleSolver.h"
+#include <string>
+#include <sstream>
+#include <fstream>
 
 PuzzleSolver::PuzzleSolver()
 {
@@ -44,6 +47,41 @@ void PuzzleSolver::GenerateDefaultLayout()
 	_Pieces.emplace_back(14, _Shapes[1], _Shapes[6], _Shapes[0], _Shapes[5]);
 	_Pieces.emplace_back(15, _Shapes[7], _Shapes[4], _Shapes[0], _Shapes[7]);
 	_Pieces.emplace_back(16, _Shapes[3], _Shapes[4], _Shapes[2], _Shapes[1]);
+}
+
+void PuzzleSolver::GenerateLayoutFromFile(const char* filepath)
+{
+	std::fstream File(filepath);
+
+	if (File.is_open())
+	{
+		std::string str;
+		while (std::getline(File, str))
+		{
+			std::istringstream stream(str);
+
+			int i, t, r, b, l;
+			i = _Pieces.size() + 1;
+
+			std::string s;
+
+			getline(stream, s, ' ');
+			t = atoi(s.c_str());
+
+			getline(stream, s, ' ');
+			r = atoi(s.c_str());
+
+			getline(stream, s, ' ');
+			b = atoi(s.c_str());
+
+			getline(stream, s, ' ');
+			l = atoi(s.c_str());
+
+			_Pieces.emplace_back(i, _Shapes[t], _Shapes[r], _Shapes[b], _Shapes[l]);
+		}
+
+		File.close();
+	}
 }
 
 void PuzzleSolver::SolvePuzzle()

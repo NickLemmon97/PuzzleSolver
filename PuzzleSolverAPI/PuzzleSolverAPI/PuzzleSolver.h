@@ -5,13 +5,15 @@
 class PuzzleSolver
 {
 
-	typedef void (*InternalDrawFunc)(std::vector<Piece>&);
+	typedef void (*InternalDrawFunc)(std::vector<Piece>&); 
 
 public:
 	PuzzleSolver();
 	~PuzzleSolver();
 
 	void GenerateDefaultLayout();
+	void GenerateLayoutFromFile(const char* filepath);
+
 	void SolvePuzzle();
 
 	int GetNumSolutions();

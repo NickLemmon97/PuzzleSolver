@@ -17,4 +17,5 @@ extern "C"
 	PLUGIN_API int   PuzzleSolver_GetNumSolutions(void* solverPtr);
 
 	PLUGIN_API void  PuzzleSolver_GetUnityPiece(void* solverPtr, int index, int* arr);
+	PLUGIN_API void  PuzzleSolver_GetUnitySolution(void* solverPtr, int index, int* order, int* rotations);
 }

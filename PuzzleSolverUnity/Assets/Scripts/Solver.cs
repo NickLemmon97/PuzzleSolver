@@ -39,6 +39,17 @@ public class Solver : MonoBehaviour
     public void DisplaySolution(int solutionNum)
     {
         Debug.Log("Button pressed: " + solutionNum.ToString());
+
+        int[] Order = new int[16];
+        int[] Rotations = new int[16];
+
+        m_PuzzleSolver.GetUnitySolution(solutionNum, Order, Rotations);
+
+        for(int i = 0; i < 16; i++)
+        {
+            PuzzlePieces[Order[i]].transform.position = Locations[i];
+            PuzzlePieces[Order[i]].SetCounterClockwiseRotation(Rotations[i]);
+        }
     }
 
     private void CreateLocations()

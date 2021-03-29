@@ -31,6 +31,10 @@ public class PuzzleSolver : IDisposable
         PuzzleSolver_GetUnityPiece(Impl, index, pieceData);
     }
 
+    public void GetUnitySolution(int index, int[] order, int[] rotations)
+    {
+        PuzzleSolver_GetUnitySolution(Impl, index, order, rotations);
+    }
 
     IntPtr Impl;
 
@@ -72,4 +76,8 @@ public class PuzzleSolver : IDisposable
     [DllImport("PuzzleSolverAPI")]
     private static extern int PuzzleSolver_GetUnityPiece(IntPtr solverPtr, int index, [MarshalAs(UnmanagedType.SafeArray)] int[] pieceData);
 
+    [DllImport("PuzzleSolverAPI")]
+    private static extern int PuzzleSolver_GetUnitySolution(IntPtr solverPtr, int index,
+                                    [MarshalAs(UnmanagedType.SafeArray)] int[] order,
+                                    [MarshalAs(UnmanagedType.SafeArray)] int[] rotatio);
 }

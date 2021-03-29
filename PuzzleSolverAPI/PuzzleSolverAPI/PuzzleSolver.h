@@ -18,7 +18,8 @@ public:
 
 	int GetNumSolutions();
 
-	Piece GetPieceAtIndex(int index);
+	Piece  GetPieceAtIndex(int index);
+	Piece* GetSolutionAtIndex(int index);
 
 	void SetDrawFunction(InternalDrawFunc func);
 	void DrawSolutions();

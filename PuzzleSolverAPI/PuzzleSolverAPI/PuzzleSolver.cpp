@@ -267,6 +267,11 @@ Piece PuzzleSolver::GetPieceAtIndex(int index)
 	return _Pieces[index];
 }
 
+Piece* PuzzleSolver::GetSolutionAtIndex(int index)
+{
+	return _Solutions[index].data();
+}
+
 void PuzzleSolver::SetDrawFunction(InternalDrawFunc func)
 {
 	DrawFunc = func;

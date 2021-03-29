@@ -75,3 +75,16 @@ PLUGIN_API void PuzzleSolver_GetUnityPiece(void* solverPtr, int index, int* arr)
 	}
 
 }
+
+PLUGIN_API void PuzzleSolver_GetUnitySolution(void* solverPtr, int index, int* order, int* rotations)
+{
+	PuzzleSolver* solver = static_cast<PuzzleSolver*>(solverPtr);
+
+	Piece* solution = solver->GetSolutionAtIndex(index);
+
+	for (int i = 0; i < 16; i++)
+	{
+		order[i] = solution[i]._Index;
+		rotations[i] = solution[i]._Rotation;
+	}
+}

@@ -13,3 +13,7 @@ The Static and Dynamic libraries should already be placed inside of the other pr
 Open the Unity Project with Unity, I created it using version 2019.4.17f1, and hit play.  If all works you should See the pieces of the puzzle on screen and a set up buttons to view the solution.
 
 The C++ project has a single draw function.  This can be changed to show the solutions how ever you want inside of the console window.  In the example I have them print the piece index and how many times it is rotated in order that they appear in the solution.
+
+# Example
+This is a working example of the project
+![](PuzzleSolutions.gif)

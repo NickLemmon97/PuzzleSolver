@@ -28,7 +28,7 @@ void PrintPieces(std::vector<Piece>& pieces)
 	std::cout << "Solution:\n";
 	for (int i = 0; i < pieces.size(); i++)
 	{
-		std::cout << "Piece" << i+1 << " has index " << pieces[i]._Index << " and is rotated counter clockwise " << pieces[i]._Rotation << " times\n";
+		std::cout << "Piece " << i+1 << " has index " << pieces[i]._Index << " and is rotated counter clockwise " << pieces[i]._Rotation << " times\n";
 	}
 	std::cout << "\n\n";
 }

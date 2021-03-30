@@ -14,6 +14,7 @@ extern "C"
 	PLUGIN_API void  PuzzleSolver_GenerateDefaultLayout(void* solverPtr);
 	PLUGIN_API void  PuzzleSolver_SolvePuzzle(void* solverPtr);
 
+	PLUGIN_API void  PuzzleSolver_GenerateLayoutFromIntArr(void* solverPtr, int* dataArr);
 	PLUGIN_API int   PuzzleSolver_GetNumSolutions(void* solverPtr);
 
 	PLUGIN_API void  PuzzleSolver_GetUnityPiece(void* solverPtr, int index, int* arr);

@@ -84,6 +84,23 @@ void PuzzleSolver::GenerateLayoutFromFile(const char* filepath)
 	}
 }
 
+void PuzzleSolver::GenerateLayoutFromIntArr(int* dataArr)
+{
+	int count = 16 * 4; //16 pieces with 4 different sides
+	for(int p = 0; p < count; p+=4)
+	{
+		int i, t, r, b, l;
+		i = _Pieces.size() + 1;
+
+		t = dataArr[i];
+		r = dataArr[i+1];
+		b = dataArr[i+2];
+		l = dataArr[i+3];
+
+		_Pieces.emplace_back(i, _Shapes[t], _Shapes[r], _Shapes[b], _Shapes[l]);
+	}
+}
+
 void PuzzleSolver::SolvePuzzle()
 {
 	//Discover all the sets of 2

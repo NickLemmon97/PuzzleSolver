@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "Piece.h"
+#include <sstream>
 
 class PuzzleSolver
 {
@@ -13,6 +14,7 @@ public:
 
 	void GenerateDefaultLayout();
 	void GenerateLayoutFromFile(const char* filepath);
+	void GenerateLayoutFromIntArr(int* dataArr);
 
 	void SolvePuzzle();
 

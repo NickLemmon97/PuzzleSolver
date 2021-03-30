@@ -31,6 +31,13 @@ PLUGIN_API void  PuzzleSolver_SolvePuzzle(void* solverPtr)
 	solver->SolvePuzzle();
 }
 
+PLUGIN_API void PuzzleSolver_GenerateLayoutFromIntArr(void* solverPtr, int* dataArr)
+{
+	PuzzleSolver* solver = static_cast<PuzzleSolver*>(solverPtr);
+
+	solver->GenerateLayoutFromIntArr(dataArr);
+}
+
 PLUGIN_API int   PuzzleSolver_GetNumSolutions(void* solverPtr)
 {
 	PuzzleSolver* solver = static_cast<PuzzleSolver*>(solverPtr);

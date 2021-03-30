@@ -16,6 +16,11 @@ public class PuzzleSolver : IDisposable
         PuzzleSolver_GenerateDefaultLayout(Impl);
     }
 
+    public void GenerateLayoutFromIntArr(int[] data)
+    {
+        PuzzleSolver_GenerateLayoutFromIntArr(Impl, data);
+    }
+
     public void SolvePuzzle()
     {
         PuzzleSolver_SolvePuzzle(Impl);
@@ -68,6 +73,9 @@ public class PuzzleSolver : IDisposable
     private static extern void PuzzleSolver_GenerateDefaultLayout(IntPtr solverPtr);
 
     [DllImport("PuzzleSolverAPI")]
+    private static extern int PuzzleSolver_GenerateLayoutFromIntArr(IntPtr SolverPtr, [MarshalAs(UnmanagedType.SafeArray)] int[] data);
+
+    [DllImport("PuzzleSolverAPI")]
     private static extern void PuzzleSolver_SolvePuzzle(IntPtr solverPtr);
 
     [DllImport("PuzzleSolverAPI")]
@@ -80,4 +88,5 @@ public class PuzzleSolver : IDisposable
     private static extern int PuzzleSolver_GetUnitySolution(IntPtr solverPtr, int index,
                                     [MarshalAs(UnmanagedType.SafeArray)] int[] order,
                                     [MarshalAs(UnmanagedType.SafeArray)] int[] rotatio);
+
 }

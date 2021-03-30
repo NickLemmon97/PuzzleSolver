@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class Solver : MonoBehaviour
@@ -14,7 +15,15 @@ public class Solver : MonoBehaviour
     public PuzzlePiece[] PuzzlePieces;
 
     public int Solutions = 20;
+    public int ButtonOffsetX = 400;
+    public int ButtonOffsetY = 200;
 
+    public float PieceStartingX = -8.0f;
+    public float PieceStartingY = 3.0f;
+    public float PieceSpacing = 2.0f;
+
+    public bool bUsePuzzleData = false;
+    public PuzzleLayout PuzzleData;
 
     void Start()
     {
@@ -24,7 +33,15 @@ public class Solver : MonoBehaviour
         Locations = new Vector3[16];
         CreateLocations();
 
-        m_PuzzleSolver.GenerateDefaultLayout();
+        if (bUsePuzzleData == true && PuzzleData != null)
+        {
+            m_PuzzleSolver.GenerateLayoutFromIntArr(PuzzleData.LayoutData);
+        }
+        else
+        {
+            m_PuzzleSolver.GenerateDefaultLayout();
+        }
+
         CreatePieces();
         
         m_PuzzleSolver.SolvePuzzle();
@@ -54,16 +71,11 @@ public class Solver : MonoBehaviour
 
     private void CreateLocations()
     {
-        float StartingX = -8.0f;
-        float StartingY = 3.0f;
-
-        float PieceOffset = 2.0f;
-
         for(int y = 0; y < 4; y++)
         {
             for(int x = 0; x < 4; x++)
             {
-                Locations[(y * 4) + x] = new Vector3(StartingX + (x * PieceOffset), StartingY - (y * PieceOffset));
+                Locations[(y * 4) + x] = new Vector3(PieceStartingX + (x * PieceSpacing), PieceStartingY - (y * PieceSpacing));
             }
         }
     }
@@ -99,8 +111,8 @@ public class Solver : MonoBehaviour
             GameObject newButton = Instantiate<GameObject>(ButtonPrefab);
 
             //Set position before placing inside the Canvas
-            int InitialXPos = 400 - (RowsCount * 45);
-            int InitialYPos = 200;
+            int InitialXPos = ButtonOffsetX - (RowsCount * 45);
+            int InitialYPos = ButtonOffsetY;
 
             int XOffset = 45 * (i / 10);
             int YOffset = 45 * (i % 10);

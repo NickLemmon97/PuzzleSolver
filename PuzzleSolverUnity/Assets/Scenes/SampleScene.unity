@@ -245,11 +245,11 @@ MonoBehaviour:
   Solutions: 20
   ButtonOffsetX: 200
   ButtonOffsetY: 200
-  PieceStartingX: -8
+  PieceStartingX: -6
   PieceStartingY: 3
   PieceSpacing: 2
   bUsePuzzleData: 1
-  PuzzleData: {fileID: 11400000, guid: 413162c62d78d3a438e86620fefa9674, type: 2}
+  PuzzleData: {fileID: 11400000, guid: 035f1bd06d1f6054ebb97fe28445657b, type: 2}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

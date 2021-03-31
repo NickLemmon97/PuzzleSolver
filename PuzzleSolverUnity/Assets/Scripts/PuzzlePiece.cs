@@ -19,6 +19,14 @@ public class PuzzlePiece : MonoBehaviour
         this.transform.rotation = Quaternion.Euler(eulerRotation);
     }
 
+    public void SetPieceColor(Color col)
+    {
+        TopShape.color = col;
+        RightShape.color = col;
+        BottomShape.color = col;
+        LeftShape.color = col;
+    }
+
     public void SetTopSprite(Sprite Shape)
     {
         TopShape.sprite = Shape;

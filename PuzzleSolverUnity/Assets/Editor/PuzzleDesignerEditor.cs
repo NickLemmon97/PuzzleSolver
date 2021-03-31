@@ -47,12 +47,19 @@ public class PuzzleDesignerEditor : Editor
                         case 3:
                             SideLabel += "left: ";
                             break;
-                    }
+                    }//end switch
+
                     EditorGUILayout.LabelField(SideLabel);
                     pLayout.LayoutData[i*4+j] = EditorGUILayout.IntField(pLayout.LayoutData[i*4+j]);
-                }
+                }//for j
+
                 EditorGUI.indentLevel--;
-            }
+            }//for i
+
+        }//end if
+        if(GUI.changed)
+        {
+            EditorUtility.SetDirty(target);
         }
-    }
+    }//end function
 }

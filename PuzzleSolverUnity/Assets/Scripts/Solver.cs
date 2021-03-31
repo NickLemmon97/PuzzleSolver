@@ -90,9 +90,9 @@ public class Solver : MonoBehaviour
             piece.transform.position = Locations[i];
 
             PuzzlePiece puzzlePiece = piece.GetComponent<PuzzlePiece>();
-            puzzlePiece.SetPieceColor(new Color(Random.Range(0.0f,1.0f), 
-                                                Random.Range(0.0f, 1.0f),
-                                                Random.Range(0.0f, 1.0f)));
+            puzzlePiece.SetPieceColor(new Color(Random.Range(0.2f,1.0f), 
+                                                Random.Range(0.3f, 1.0f),
+                                                Random.Range(0.2f, 1.0f)));
 
             m_PuzzleSolver.GetUnityPiece(i, PieceValues);
 

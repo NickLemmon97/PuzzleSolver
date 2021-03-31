@@ -92,10 +92,10 @@ void PuzzleSolver::GenerateLayoutFromIntArr(int* dataArr)
 		int i, t, r, b, l;
 		i = _Pieces.size() + 1;
 
-		t = dataArr[i];
-		r = dataArr[i+1];
-		b = dataArr[i+2];
-		l = dataArr[i+3];
+		t = dataArr[p];
+		r = dataArr[p+1];
+		b = dataArr[p+2];
+		l = dataArr[p+3];
 
 		_Pieces.emplace_back(i, _Shapes[t], _Shapes[r], _Shapes[b], _Shapes[l]);
 	}

@@ -249,7 +249,7 @@ MonoBehaviour:
   PieceStartingY: 3
   PieceSpacing: 2
   bUsePuzzleData: 1
-  PuzzleData: {fileID: 11400000, guid: 035f1bd06d1f6054ebb97fe28445657b, type: 2}
+  PuzzleData: {fileID: 11400000, guid: 2cd7fc5eefc7a5d4eaaacec3df6a7c3b, type: 2}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

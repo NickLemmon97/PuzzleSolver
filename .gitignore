@@ -1,2 +1,5 @@
 # The output directory for the C++ Visual Studio project
 _build/
+
+#ignore the lib since it could have been built with a different compiler
+/PuzzleSolverC++/PuzzleSolverC++/Plugins/PuzzleSolverAPI.lib

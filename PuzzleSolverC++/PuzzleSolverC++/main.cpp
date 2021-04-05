@@ -22,10 +22,12 @@ int main()
 	return 0;
 }
 
+int solutionsCount = 0;
 
 void PrintPieces(std::vector<Piece>& pieces)
 {
-	std::cout << "Solution:\n";
+	solutionsCount++;
+	std::cout << "Solution: " << solutionsCount << "\n";
 	for (int i = 0; i < pieces.size(); i++)
 	{
 		std::cout << "Piece " << i+1 << " has index " << pieces[i]._Index << " and is rotated counter clockwise " << pieces[i]._Rotation << " times\n";

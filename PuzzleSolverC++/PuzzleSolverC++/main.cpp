@@ -14,9 +14,8 @@ int main()
 	
 	std::cout << solver->GetNumSolutions() << std::endl;
 
-	solver->SetDrawFunction(&PrintPieces);
+	solver->SetDrawFunction(PrintPieces);
 	solver->DrawSolutions();
-
 
 	std::cin.get();
 	return 0;

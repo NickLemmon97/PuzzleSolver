@@ -2,11 +2,11 @@
 #include <vector>
 #include "Piece.h"
 #include <sstream>
+#include <functional>
 
 class PuzzleSolver
 {
-
-	typedef void (*InternalDrawFunc)(std::vector<Piece>&); 
+	std::function<void(std::vector<Piece>&)> DrawFunction;
 
 public:
 	PuzzleSolver();
@@ -23,7 +23,7 @@ public:
 	Piece  GetPieceAtIndex(int index);
 	Piece* GetSolutionAtIndex(int index);
 
-	void SetDrawFunction(InternalDrawFunc func);
+	void SetDrawFunction(std::function<void(std::vector<Piece>&)> drawFunc);
 	void DrawSolutions();
 
 private:
@@ -41,6 +41,5 @@ private:
 	std::vector<Piece> _Pieces;
 	std::vector<std::vector<Piece>> _Solutions;
 
-	InternalDrawFunc DrawFunc;
 };
 

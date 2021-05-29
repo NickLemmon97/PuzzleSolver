@@ -13,8 +13,6 @@ PuzzleSolver::PuzzleSolver()
 	_Shapes[5] = InArrow    (true );
 	_Shapes[6] = OutArrow   (false);
 	_Shapes[7] = OutArrow   (true );
-
-	DrawFunc = nullptr;
 }
 
 PuzzleSolver::~PuzzleSolver()
@@ -289,18 +287,15 @@ Piece* PuzzleSolver::GetSolutionAtIndex(int index)
 	return _Solutions[index].data();
 }
 
-void PuzzleSolver::SetDrawFunction(InternalDrawFunc func)
+void PuzzleSolver::SetDrawFunction(std::function<void(std::vector<Piece>&)> drawFunc)
 {
-	DrawFunc = func;
+	DrawFunction = drawFunc;
 }
 
 void PuzzleSolver::DrawSolutions()
 {
-	if (DrawFunc != nullptr)
+	for (std::vector<Piece> sol : _Solutions)
 	{
-		for (std::vector<Piece> sol : _Solutions)
-		{
-			DrawFunc(sol);
-		}
+		DrawFunction(sol);
 	}
 }
